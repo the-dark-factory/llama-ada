@@ -24,3 +24,4 @@ config/
 # editor / OS
 *~
 .DS_Store
+mind.svg
