@@ -19,9 +19,13 @@ library project Llama_Ada is
    end Compiler;
 
    --  Propagated to anyone with-ing this project: link the llama.cpp /
-   --  ggml dynamic libraries (built by scripts/build-llama.sh) and the
-   --  macOS Metal frameworks ggml-metal needs.
-   Libs := "/Users/tony/dev/_llama-work/llama.cpp/build/bin";
+   --  ggml dynamic libraries and the macOS Metal frameworks ggml-metal
+   --  needs. The libraries live in the vendored llama.cpp checkout
+   --  (scripts/setup-llama.sh clones + builds it at the pinned SHA);
+   --  override LLAMA_CPP_LIB to point at a build elsewhere, e.g.
+   --    gprbuild -XLLAMA_CPP_LIB=/path/to/llama.cpp/build/bin
+   Libs := external ("LLAMA_CPP_LIB",
+                     Project'Project_Dir & "vendor/llama.cpp/build/bin");
    package Linker is
       for Linker_Options use
         ("-L" & Libs,
