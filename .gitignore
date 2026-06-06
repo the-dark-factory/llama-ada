@@ -1,0 +1,23 @@
+# build artifacts
+obj/
+lib/
+bin/
+examples/*/obj/
+examples/*/bin/
+*.ali
+*.o
+*.so
+*.dylib
+*.a
+
+# models (downloaded separately; large)
+models/
+*.gguf
+
+# Alire
+alire/
+config/
+
+# editor / OS
+*~
+.DS_Store

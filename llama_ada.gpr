@@ -1,0 +1,38 @@
+--  Root GPR for the llama-ada bindings.
+--
+--  Compiles the generated llama.cpp binding (src/, produced by
+--  gcc -x c++ -fdump-ada-spec over llama.h) into a static library.
+--  The link against libllama + the ggml stack is carried by the
+--  example/demo projects (scripts/build-llama.sh builds those libs).
+
+library project Llama_Ada is
+
+   for Library_Name use "llama_ada";
+   for Library_Kind use "static";
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Library_Dir use "lib";
+
+   package Compiler is
+      --  Machine-generated binding; compiled warning-tolerant.
+      for Default_Switches ("ada") use ("-gnat2022", "-gnatws");
+   end Compiler;
+
+   --  Propagated to anyone with-ing this project: link the llama.cpp /
+   --  ggml dynamic libraries (built by scripts/build-llama.sh) and the
+   --  macOS Metal frameworks ggml-metal needs.
+   Libs := "/Users/tony/dev/_llama-work/llama.cpp/build/bin";
+   package Linker is
+      for Linker_Options use
+        ("-L" & Libs,
+         "-lllama", "-lggml", "-lggml-base", "-lggml-cpu", "-lggml-metal", "-lggml-blas",
+         "-Wl,-rpath," & Libs,
+         "-framework", "Metal",
+         "-framework", "Foundation",
+         "-framework", "Accelerate",
+         "-framework", "MetalKit",
+         "-framework", "QuartzCore",
+         "-Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk");
+   end Linker;
+
+end Llama_Ada;
