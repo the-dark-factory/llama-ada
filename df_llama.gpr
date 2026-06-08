@@ -5,7 +5,7 @@
 --  The link against libllama + the ggml stack is carried by the
 --  example/demo projects (scripts/build-llama.sh builds those libs).
 
-library project Llama_Ada is
+library project Df_Llama is
 
    for Library_Name use "llama_ada";
    for Library_Kind use "static";
@@ -39,4 +39,4 @@ library project Llama_Ada is
          "-Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk");
    end Linker;
 
-end Llama_Ada;
+end Df_Llama;

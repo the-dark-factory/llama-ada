@@ -5,7 +5,7 @@ model and run a local LLM **on-device from Ada**. The thin binding is generated
 from llama.cpp's C headers; a small hand-authored wrapper (`Llama.Generate`)
 drives a greedy decode loop and streams the continuation to stdout.
 
-Alire crate: **`llama_ada`**.
+Alire crate: **`df_llama`**.
 
 This is a **binding**, not a verified component — a bridge to llama.cpp's C, not
 a proof of it.

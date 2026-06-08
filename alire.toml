@@ -1,5 +1,5 @@
-name = "llama_ada"
-description = "Ada bindings to llama.cpp — run a local LLM on-device from Ada"
+name = "df_llama"
+description = "Ada bindings to llama.cpp - run a local LLM on-device from Ada"
 version = "0.1.0"
 authors = ["The Dark Factory Ltd"]
 maintainers = ["tony.gair@thedarkfactory.co.uk"]
@@ -7,7 +7,7 @@ maintainers-logins = ["tonygair"]
 licenses = "MIT"
 website = "https://github.com/the-dark-factory/llama-ada"
 tags = ["binding", "llm", "ai", "llama", "ggml"]
-project-files = ["llama_ada.gpr"]
+project-files = ["df_llama.gpr"]
 auto-gpr-with = false
 
 #  The src/ binding is machine-generated (gcc -fdump-ada-spec); skip style checks.
