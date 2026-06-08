@@ -1,0 +1,27 @@
+# build artifacts
+obj/
+lib/
+bin/
+examples/*/obj/
+examples/*/bin/
+*.ali
+*.o
+*.so
+*.dylib
+*.a
+
+# models (downloaded separately; large)
+models/
+*.gguf
+
+# vendored llama.cpp checkout (cloned at a pinned SHA by scripts/setup-llama.sh)
+vendor/
+
+# Alire
+alire/
+config/
+
+# editor / OS
+*~
+.DS_Store
+mind.svg
