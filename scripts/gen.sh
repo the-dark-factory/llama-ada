@@ -32,7 +32,7 @@
 #      the wrapper, written against the _f names, still compiles.
 #
 # Requirements: a current-SDK gcc with -fdump-ada-spec (override with GEN_GCC),
-# and a llama.cpp checkout at vendor/llama.cpp (scripts/setup-llama.sh; override
+# and a llama.cpp checkout at vendor/llama.cpp (clone llama.cpp there, or override
 # with LLAMA_CPP).
 set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
