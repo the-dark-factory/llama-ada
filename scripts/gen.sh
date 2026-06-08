@@ -39,7 +39,7 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 llama_src="${LLAMA_CPP:-$repo_root/vendor/llama.cpp}"
 hdr="$llama_src/include/llama.h"
-[ -f "$hdr" ] || { echo "error: $hdr not found — run scripts/setup-llama.sh (or set LLAMA_CPP)" >&2; exit 1; }
+[ -f "$hdr" ] || { echo "error: $hdr not found — clone llama.cpp to vendor/llama.cpp (or set LLAMA_CPP)" >&2; exit 1; }
 
 gen_gcc="${GEN_GCC:-/opt/homebrew/bin/gcc-15}"
 command -v "$gen_gcc" >/dev/null 2>&1 || gen_gcc="gcc-15"

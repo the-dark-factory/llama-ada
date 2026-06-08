@@ -14,7 +14,7 @@ examples/*/bin/
 models/
 *.gguf
 
-# vendored llama.cpp checkout (cloned at a pinned SHA by scripts/setup-llama.sh)
+# vendored llama.cpp checkout (your local llama.cpp build)
 vendor/
 
 # Alire
